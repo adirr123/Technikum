@@ -2,12 +2,13 @@
 include('site/header.php');
 ?>
 <?php 
-if (!isset($_SESSION['loginSession'] )) {
+if (isset($_SESSION['loginSession'] )) {
 echo "Jest sesja";
+unset($_SESSION['loginSession']);
 } else {
     if (isset($_POST['submit'])) {
         $login = htmlspecialchars($_POST['login']);
-        $pass  = htmlentities($_POST['password']);
+        $pass  = htmlspecialchars($_POST['password']);
         //echo $login . " " . $pass;
         $conn = mysqli_connect('localhost','webPLA','webPLA','portal');
         if (!$conn) {
@@ -22,8 +23,8 @@ echo "Jest sesja";
                 if ($user['login'] == $login && $user['haslo'] == $pass) {
                     echo "Jestem zalogowany!!!";
                     $flag = false;
-                    session_start();
                     $_SESSION['loginSession'] = 'start';
+                    header('location: login.php');
                     break;
                 } //else {
                     //echo "Błędny podałeś login lub hasło!";
