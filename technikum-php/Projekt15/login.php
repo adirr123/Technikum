@@ -6,7 +6,7 @@ include('site/header.php');
     if (isset($_POST['submit'])) {
         $login = htmlspecialchars($_POST['login']);
         $pass  = htmlentities($_POST['password']);
-        echo $login . " " . $pass;
+        //echo $login . " " . $pass;
         $conn = mysqli_connect('localhost','webPLA','webPLA','portal');
         if (!$conn) {
             echo 'Błąd połączenia z bazą danych. Error : ' . mysqli_connect_error();
@@ -14,12 +14,21 @@ include('site/header.php');
             $sqlSelect = 'SELECT login, haslo FROM users';
             $result = mysqli_query($conn, $sqlSelect);
             $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $flag = true;
             foreach ($users as $user) {
                 echo $user['login'] . " - " . $user['haslo'] . "<br>";
+                if ($user['login'] == $login && $user['haslo'] == $pass) {
+                    echo "Jestem zalogowany!!!";
+                    $flag = false;
+                    break;
+                } //else {
+                    //echo "Błędny podałeś login lub hasło!";
+                //}
             }
-        }
+        } if ($flag) echo "Błędne podałeś login lub hasło.";
     }
 ?>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -40,8 +49,8 @@ include('site/header.php');
                     <input type="password" class="form-control" id="inputPassword3" name="password">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Log In</button>
-            <button type="cancel" class="btn btn-primary">Cancel</button>
+            <button type="submit" class="btn btn-primary" name="submit">Zaloguj się</button>
+            <button type="cancel" class="btn btn-primary">Anuluj</button>
         </form>
     </div>
 </div>
