@@ -5,8 +5,12 @@ include('site/header.php');
 session_start();
 if (isset($_SESSION['loginSession'] )) {
     ?>
-    
-    //unset($_SESSION['loginSession']);
+    <?php 
+if (isset($_SESSION['logout'])) {
+    unset($_SESSION['loginSession']);
+    header('location: login.php');
+} else {
+    ?>
     <div class="container">
     <div class="row">
         <div class="col-12">
@@ -43,7 +47,7 @@ if (isset($_SESSION['loginSession'] )) {
                 if ($user['login'] == $login && $user['haslo'] == $pass) {
                     echo "Jestem zalogowany!!!";
                     $flag = false;
-                    $_SESSION['loginSession'] = 'start';
+                    $_SESSION['loginSession'] = $login;
                     header('location: login.php');
                     break;
                 } //else {
