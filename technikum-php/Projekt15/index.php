@@ -55,9 +55,9 @@
             <div class="card">
                 <img src="https://picsum.photos/300/200?random=3" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Podstawy HTML</h5>
+                    <p class="card-text">Nauczysz się języka HTML od podstaw. Kurs dla osób początkujących. Dzięki naszym kursom zdobędziesz lepszą pracę</p>
+                    <a href="kurs.php" class="btn btn-primary">zapisz się kurs</a>
                 </div>
             </div>
 
@@ -66,8 +66,8 @@
             <div class="card">
                 <img src="https://picsum.photos/300/200?random=1" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">Podstawy CSS</h5>
+                    <p class="card-text">Nauczysz się upiększać strony dzięki kursom CSS od podstaw. Kurs dla osób początkujących. Dzięki naszym kursom zdobędziesz lepszą pracę</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
@@ -76,8 +76,8 @@
             <div class="card">
                 <img src="https://picsum.photos/300/200?random=2" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">Podstawy JavaScript</h5>
+                    <p class="card-text">Nauczysz się JavaScript od podstaw. Kurs dla osób początkujących. Dzięki naszym kursom zdobędziesz lepszą pracę</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
@@ -115,9 +115,9 @@
 
             <div class="p-5 mb-4 bg-light rounded-3">
                 <div class="container-fluid py-5">
-                    <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+                    <h1 class="display-5 fw-bold">O nas</h1>
                     <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-                    <button class="btn btn-primary btn-lg" type="button">Example button</button>
+                    <a href="kontakt.php"><button class="btn btn-primary btn-lg" type="button" >Napisz do nas</button></a>
                 </div>
             </div>
         </div>
