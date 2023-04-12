@@ -1,8 +1,10 @@
 <?php
 include('site/header.php');
 ?>
-
 <?php 
+if (!isset($_SESSION['loginSession'] )) {
+echo "Jest sesja";
+} else {
     if (isset($_POST['submit'])) {
         $login = htmlspecialchars($_POST['login']);
         $pass  = htmlentities($_POST['password']);
@@ -20,6 +22,8 @@ include('site/header.php');
                 if ($user['login'] == $login && $user['haslo'] == $pass) {
                     echo "Jestem zalogowany!!!";
                     $flag = false;
+                    session_start();
+                    $_SESSION['loginSession'] = 'start';
                     break;
                 } //else {
                     //echo "Błędny podałeś login lub hasło!";
@@ -54,3 +58,4 @@ include('site/header.php');
         </form>
     </div>
 </div>
+<?php }
