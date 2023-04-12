@@ -1,0 +1,13 @@
+body {
+    background-color: red;
+    margin:0px;
+    padding:0px;
+    text-align:center;
+}
+button {
+    text-align: center;
+}
+.adder {
+    text-align: right;
+    margin-top: 80%;
+}

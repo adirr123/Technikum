@@ -1,0 +1,97 @@
+:root{
+--colortext: #0d0d0d;
+--colorbg: #be0e0e;
+--colorlight:#f2e49b;
+--colordark:#f2cb05;
+--colormain:#f2b705;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: var(--colorbg);
+
+}
+
+input[type=text],input[type=tel],input[type=email] {
+    background-color: #f2e49b;
+    margin: 5px 0;
+    padding: 5px;
+    width: 250px;
+    height: 30px;
+    border: 2px solid var(--colortext);
+}
+input[type=textarea]{
+    width: 250px;
+    height: 88px;
+    margin: 5px 0;
+    padding: 5px;
+    background-color: var(--colorlight);
+    border: 2px solid var(--colortext);
+    color: var(--colortext);
+
+}
+
+input[type=submit]{
+    background-color: var(--colortext);
+    margin: 5px 0;
+    padding: 5px;
+    width: 250px;
+    height: 44px;
+    border: 2px solid var(--colortext);
+    color:var(--colorlight);
+}
+h1.napis{
+    margin: 40px;
+    text-align: center;
+}
+
+.zew{
+    background-color: pink;
+    width: 600px;
+    margin: auto;
+    display: flex;
+    height: 200px;
+    /* padding: 0px;
+    margin: 5px;
+    width: 410px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%) */
+
+}
+
+.lewo{
+    background-color: aqua;
+    width: 300px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+
+    /* float: left; */
+    /* display: inline-block; */
+    /* margin: 0px; */
+    /* position: relative; */
+}
+
+.prawo{
+    background-color: wheat;
+    width:300px;
+
+    /* display: inline-block;
+    margin: 0px;
+    position: relative;
+    float: right;
+*/
+} 
+
+
+
+#baton{
+    width: 250px;
+    height: 25px;
+}

@@ -1,0 +1,31 @@
+.res {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%)
+}
+
+.licznik {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%)
+}
+
+.inne {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top:40%;
+    transform: translate(-50%, -50%)
+}
+
+.strona {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top:40%;
+    transform: translate(-50%, -50%)
+}

@@ -1,0 +1,65 @@
+body {
+    margin:0;
+    padding:0;
+}
+.murzyn {
+    margin:2px auto;
+    padding:2px auto;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-size: 300%;
+}
+.murzyn2 {
+    text-align:center;
+}
+.murzyn3 {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+.murzyn4 {
+    display: inline-block;
+    text-decoration: underline;
+    font-size:200%;
+    margin:5px;
+}
+.murzyn5 {
+display: inline-block ;
+text-decoration: underline;
+font-size:200%;
+margin: 5px;
+
+}
+.murzyn6 {
+    border: 2px solid black;
+    border-radius: 15px;
+    text-align: center;
+
+}
+.murzyn7{
+    display: inline-block;
+    font-size:200%;
+    margin: 5px;
+    
+}
+
+.footer {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin:1px;
+    font-size: 100%;
+}
+
+
+.button2 {
+margin:2px;
+}
+.img { 
+    margin: 3px;
+    padding:3px;
+    border-radius: 5px;
+    border: 1px solid black;
+    
+}

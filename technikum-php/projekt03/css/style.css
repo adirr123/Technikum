@@ -1,0 +1,83 @@
+/* colors */
+:root{
+    --colortext: #0D0D0D;
+    --colorbg: #f29f05;
+    --colorlight: #f2e49b;
+    --colordark: #f2cb05;
+    --colormain: #f2b705;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--colorbg);
+    color: var(--colortext);
+}
+
+input[type=text],
+input[type="tel"],
+input[type="email"] {
+    background-color: var(--colorlight);
+    color: var(--colortext);
+    margin: 2px;
+    width: 250px;
+    height: 20px;
+    padding: 4px;
+    border: 2px solid var(--colortext);
+}
+
+h1.maintittle{
+    margin: 40px auto;
+    text-align: center;
+}
+
+.wrapper{
+    background-color: pink;
+    width: 600px;
+    margin: auto;
+}
+
+.left{
+    background-color: aquamarine;
+    width: 300px;
+    /* display: inline-block;
+    margin: 0px;
+    position: relative; */
+}
+
+/* .zew{
+    background-color: pink;
+    padding: 0px;
+    margin: 5px;
+    width: 410px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%)
+} */
+
+/* .left{
+    display: inline-block;
+    margin: 0px;
+    position: relative;
+}
+
+.right{
+    display: inline-block;
+    margin: 0px;
+    position: relative;
+    float: right;
+} */
+
+#tresc{
+    height: 47px;
+}
+
+#baton{
+    width: 260px;
+    height: 23px;
+}
