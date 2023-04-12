@@ -1,10 +1,35 @@
 <?php
+session_start();
 include('site/header.php');
 ?>
 <?php 
+
 if (isset($_SESSION['loginSession'] )) {
-echo "Jest sesja";
-unset($_SESSION['loginSession']);
+    ?>
+    <?php 
+if (isset($_POST['logout'])) {
+    unset($_SESSION['loginSession']);
+    header('location: login.php');
+} else {
+    ?>
+    <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Wylogowywanie</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post"> 
+            <button type="submit" class="btn btn-primary" name="logout">Wyloguj się</button>
+        </div>
+    </div>
+</div>
+<?php
+//echo "Jest sesja";
+}
 } else {
     if (isset($_POST['submit'])) {
         $login = htmlspecialchars($_POST['login']);
@@ -23,7 +48,7 @@ unset($_SESSION['loginSession']);
                 if ($user['login'] == $login && $user['haslo'] == $pass) {
                     echo "Jestem zalogowany!!!";
                     $flag = false;
-                    $_SESSION['loginSession'] = 'start';
+                    $_SESSION['loginSession'] = $login;
                     header('location: login.php');
                     break;
                 } //else {
