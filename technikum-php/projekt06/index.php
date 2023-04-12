@@ -17,4 +17,5 @@ b:<input type="number" name="b" value="a" id="b" placeholder="Wprowadź wartoś�
 //Utwórz formularz zawierający jedno pole input typu liczbowego do którego użytkownik będzie wpisywał wynik mnożenia wylosowanych 2 liczb
 //Liczby te mają się wyświetlić przed polem input
 //po naciśnięciu przycisku typu submit mamy sprawdzić czy użytkownik prawidłowo wpisał wynik mnożenia wyświetl odpowiedni komunikat
+//Gdybym był magiem
 ?>
