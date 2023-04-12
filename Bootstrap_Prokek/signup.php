@@ -114,9 +114,9 @@ placeholder="nazwa@mail.com
 <?php 
 
 if ($error[0] == "" && $error[1] == "" && $error[3] == "" && $error[4] == "" && $error[5]) {
-  $conn = mysqli_connect('localhost', 'webPLA','webPLA','portal');
+  $conn = mysqli_connect('localhost','webPLA','portal');
   if ($conn) {
-    echo "Błąd połączenia z bazą danych!";  . mysqli_connect_error();
+    echo "Błąd połączenia z bazą danych!"  . mysqli_connect_error();
   }
 } else {
     echo 'Połączono z bazą danych';
