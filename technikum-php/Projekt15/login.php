@@ -4,9 +4,20 @@ include('site/header.php');
 
 <?php 
     if (isset($_POST['submit'])) {
-        $login = $_POST['login'];
-        $pass  = $_POST['password'];
+        $login = htmlspecialchars($_POST['login']);
+        $pass  = htmlentities($_POST['password']);
         echo $login . " " . $pass;
+        $conn = mysqli_connect('localhost','webPLA','webPLA','portal');
+        if (!$conn) {
+            echo 'Błąd połączenia z bazą danych. Error : ' . mysqli_connect_error();
+        } else {
+            $sqlSelect = 'SELECT login, haslo FROM users';
+            $result = mysqli_query($conn, $sqlSelect);
+            $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            foreach ($users as $user) {
+                echo $user['login'] . " - " . $user['haslo'] . "<br>";
+            }
+        }
     }
 ?>
 <div class="container">
