@@ -1,6 +1,14 @@
 <?php
 include('site/header.php');
 ?>
+
+<?php 
+    if (isset($_POST['submit'])) {
+        $login = $_POST['login'];
+        $pass  = $_POST['password'];
+        echo $login . " " . $pass;
+    }
+?>
 <div class="container">
     <div class="row">
         <div class="col-12">

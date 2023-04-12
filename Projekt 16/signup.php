@@ -1,6 +1,6 @@
-<?php include('header.php'); ?>
+<?php include('site/header.php'); ?>
 <?php
-$error = array("", "", "", "", "", true);
+$error = array("", "", "", "", "",true);
 if (isset($_POST['submit'])) {
     $imie = htmlspecialchars($_POST['imie']);
     if ($imie == "" || strlen($imie) < 3) {
@@ -29,10 +29,10 @@ if (isset($_POST['submit'])) {
         $error[4] = "Hasło musi posiadać min. 8 znaków. i być identyczne.";
     // 1wwwdAw@dwaA!aa
     
-    if (!empty($_POST['regulamin'])) {
-        $error[5] = true;
+    if (!empty(!empty(['regulamin']))) {
+        $error[5]=true;
     } else {
-        $error[5] = false;
+        $error[5]=false;
     }
 }
 ?>
@@ -91,14 +91,13 @@ placeholder="nazwa@mail.com
                     <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="powtórz hasło" name="haslo2">
                 </div>
                 <div class="form-check">
-                  <?php 
-                  if (!$error[5]) {
-                    ?>
-                      <label for="" class="alert alert-warning">Musisz zaakceptować regulamin, aby korzystać z serwisu Internetowego.</label>
+                    <?php
+                    if(!$error[5]) {
+                        ?>
+                        <label for="" class="alert alert-warning">zaaceptuj regulamin</label>
                     <?php } ?>
-                      <input class="form-check-input" type="checkbox" value="regulamin" id="flexCheckChecked" name="regulamin">
+                    <input class="form-check-input" type="checkbox" value="regulamin" id="flexCheckChecked" name="regulamin">
                     <label class="form-check-label" for="flexCheckChecked">
-
                         Akceptuje regulamin strony Internetowej.
                     </label>
                 </div>
@@ -110,30 +109,31 @@ placeholder="nazwa@mail.com
         </div>
     </div>
 </div>
+
 <!-- end - formularz -->
-<?php 
-if ($error[0] == "" && $error[1] == "" && $error[3] == "" && $error[4] == "" && $error[5]) {
-  $conn = mysqli_connect('localhost','webPLA','portal');
-  if ($conn) {
-    echo "Błąd połączenia z bazą danych!"  . mysqli_connect_error();
-  }
-} else {
-    echo 'Połączono z bazą danych';
-    echo $_POST['imie'];
-    echo $_POST['nazwisko'];
-    echo $_POST['mail'];
-    echo $_POST['haslo1'];
-    echo $_POST['regulamin'];
-    echo $_POST['imie'];
-    $datadodania = date("Y-m-d");
-
-    $sql = "INSERT INTO users('imie', 'nazwisko', 'login', 'mail', 'haslo','regulamin','dataDodania')
-    VALUES ('$_POST['imie']','$_POST['nazwisko']','$_POST['mail']','$_POST['login']','
-    $_POST['haslo1']','true','$_POST['datadodania']");
-    $imie;
-    mysqli_close($conn, $sql);
-    mysqli_close($conn);
-    }
-
-
-?>
+<?php
+// if (preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,20}$/', '1wwwdAw@dwaA!aa'))
+//     echo "dobre hasło.";
+// else
+//     echo "błędne hasło.";
+if($error[0] == "" && $error[1] == "" && $error[2] == "" && $error[3] == "" && $error[4] == "" && $error[5] && isset($_POST['submit'])){
+    $conn = mysqli_connect('localhost', 'webPLA', '', 'Portal');
+        if(!$conn){
+            echo 'błąd połączenia z bazą danych. error : ' . mysqli_connect_error();
+        }
+        else{
+            echo 'połączono z bazą';
+            echo $_POST['imie'];
+            echo $_POST['nazwisko'];
+            echo $_POST['login'];
+            echo $_POST['mail'];
+            echo $_POST['haslo1'];
+            $datadodania = date("Y-m-d");
+            // zmienne 
+        $sql = "INSERT INTO users( imie, nazwisko, login, mail, haslo, regulamin, dataDodania)
+         VALUES ('$imie','$nazwisko','$login','$mail','$haslo1','true','$datadodania')";
+        mysqli_query($conn, $sql);
+        mysqli_close($conn);
+        }
+}
+?> 
