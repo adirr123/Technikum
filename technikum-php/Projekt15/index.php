@@ -153,6 +153,4 @@
     </div>
 </div>
 <script src="js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+</php include('site/footer.php'); ?>

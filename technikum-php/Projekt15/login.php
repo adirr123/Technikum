@@ -84,4 +84,5 @@ if (isset($_POST['logout'])) {
         </form>
     </div>
 </div>
-<?php }
+<?php } ?>
+</php include('site/footer.php'); ?>
