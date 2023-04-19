@@ -13,7 +13,7 @@
     <div class="wrapper">
         <?php
         if (isset($_GET['commit'])) {
-        $tmp = $_GET['ccommit'];
+        $tmp = $_GET['commit'];
         if (tmp != "") echo $tmp;
         }
         ?>

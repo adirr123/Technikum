@@ -117,6 +117,27 @@ if (isset($_POST['submit'])) {
                 if (!$conn) {
                     echo 'Błąd połaczenia z bazą danych. Error : ' . mysqli_connect_error();
                 } else {
+                    $flagLogin = true;
+                    $flagMail = true;
+                    $sqlSelect = 'SELECT login, mail FROM users';
+                    $result = mysqli_query($conn, $sqlSelect);
+                    $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    foreach ( $users as $user1) {
+                        //echo $user1['login'] . " " . $user1['mail'] . "<br>";
+                        if ( $user1['login'] == $login) {
+                            //echo "<h1 ISTNIEJE </h1>";
+                        }
+
+                    }
+                    foreach ( $users as $user2) {
+                        //echo $user2['login'] . " " . $user2['mail'] . "<br>";
+                        if ( $user2['mail'] == $login) {
+                            //echo "<h1 ISTNIEJE </h1>";
+                        }
+
+                    }
+                    
+                    if ($flagLogin && $flagMail) {
                     // wyswietlenie danych z formularza
                     // echo $_POST['imie'];
                     // echo $_POST['nazwisko'];
@@ -128,10 +149,13 @@ if (isset($_POST['submit'])) {
                     // zmienne 
                     $sql = "INSERT INTO users(imie, nazwisko, login, mail, haslo, regulamin, dataDodania) VALUES ('$imie','$nazwisko','$login','$mail','$haslo1',true,'$datadodania')";
                     mysqli_query($conn, $sql);
-                    mysqli_close($conn);
 
                     echo 'Dodano użytkownika!';
+                } else {
+                    echo 'Podany login lub mail istnieje.';
                 }
+                mysqli_close($conn);
+            }
             }
             ?>
         </div>
