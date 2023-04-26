@@ -2,87 +2,163 @@
 session_start();
 include('site/header.php');
 ?>
-<?php 
-
-if (isset($_SESSION['loginSession'] )) {
-    ?>
-    <?php 
-if (isset($_POST['logout'])) {
-    unset($_SESSION['loginSession']);
-    header('location: login.php');
-} else {
-    ?>
-    <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1>Wylogowywanie</h1>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post"> 
-            <button type="submit" class="btn btn-primary" name="logout">Wyloguj się</button>
-        </div>
-    </div>
-</div>
 <?php
-//echo "Jest sesja";
-}
+if (isset($_SESSION['loginSession'])) {
+    if (isset($_POST['logout'])) {
+        unset($_SESSION['loginSession']);
+        header('location: login.php');
+    } else {
+?>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Konta użytkoników portalu</h1>
+                </div>
+                <div class="col-12">
+                    <!-- wyświetlenie użytkowników -->
+                    <?php
+                    $conn = mysqli_connect('localhost', 'webPLA', 'webPLA', 'portal');
+                    if (!$conn) {
+                        echo 'Błąd połaczenia z bazą danych. Error : ' . mysqli_connect_error();
+                    } else {
+                        $sqlSelect = 'SELECT IdUser, imie, nazwisko, login, mail, dataDodania FROM users';
+                        $sqlSelectResult = mysqli_query($conn, $sqlSelect);
+                        $users = mysqli_fetch_all($sqlSelectResult, MYSQLI_ASSOC);
+
+                    ?>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Imię</th>
+                                    <th scope="col">Nazwisko</th>
+                                    <th scope="col">Login</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Data utworzenia konta</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <?php
+                                $i = 1;
+                                foreach ($users as $user) {
+
+                                    echo "<tr>";
+                                    echo "<th scope=\"row\">" . $i . "</th>";
+                                    echo "<td>" . $user['imie'] . "</td>";
+                                    echo "<td>" . $user['nazwisko'] . "</td>";
+                                    echo "<td>" . $user['login'] . "</td>";
+                                    echo "<td>" . $user['mail'] . "</td>";
+                                    echo "<td>" . $user['dataDodania'] . "</td>";
+                                    echo "<td>";
+                                    echo "<td><button type=\"button\" class=\"btn btn-warning btn-sm\">USUŃ</button></td>";
+                                    echo "<input class=\"btn btn-warning btn-sm\" type=\"submit\" name=\"remove\" value=\"USUŃ\" ";
+                                    echo "</form>";
+                                    echo "</td>";
+                                    echo "</tr>";
+                                    $i++;
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+
+                    <?php
+                        mysqli_close($conn);
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Wylogowywanie</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                        <button type="submit" class="btn btn-primary" name="logout">Log Out</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- 
+        echo "Jest sesja";
+    -->
+        <?php
+    }
 } else {
     if (isset($_POST['submit'])) {
         $login = htmlspecialchars($_POST['login']);
         $pass  = htmlspecialchars($_POST['password']);
-        //echo $login . " " . $pass;
-        $conn = mysqli_connect('localhost','webPLA','webPLA','portal');
+        // echo $login . " " . $pass;
+        $conn = mysqli_connect('localhost', 'webPLA', 'webPLA', 'portal');
         if (!$conn) {
-            echo 'Błąd połączenia z bazą danych. Error : ' . mysqli_connect_error();
+            echo 'Błąd połaczenia z bazą danych. Error : ' . mysqli_connect_error();
         } else {
             $sqlSelect = 'SELECT login, haslo FROM users';
             $result = mysqli_query($conn, $sqlSelect);
             $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
             $flag = true;
             foreach ($users as $user) {
-                echo $user['login'] . " - " . $user['haslo'] . "<br>";
+                // echo $user['login'] . " - " . $user['haslo'] . "<br>";
                 if ($user['login'] == $login && $user['haslo'] == $pass) {
                     echo "Jestem zalogowany!!!";
                     $flag = false;
                     $_SESSION['loginSession'] = $login;
+                    mysqli_close($conn);
                     header('location: login.php');
-                    break;
-                } //else {
-                    //echo "Błędny podałeś login lub hasło!";
-                //}
+                    // break;
+                }
+                // else {
+                //     echo "Błędnie podałeś login lub hasło.";
+                // }
             }
-        } if ($flag) echo "Błędne podałeś login lub hasło.";
-    }
-?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1>Logowanie</h1>
+        ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="alert alert-danger">
+                            <?php
+                            if ($flag) echo "Błędnie podałeś login lub hasło.";
+                            ?>
+                        </p>
+                    </div>
+                </div>
+        <?php
+        }
+    }
+        ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Logowanie</h1>
+                </div>
+            </div>
+            <div class="row">
+                <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Login</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail3" name="login">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword3" name="password">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="submit">Log In</button>
+                    <button type="cancel" class="btn btn-primary">Cancel</button>
+                </form>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-            <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Login</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" name="login">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3" name="password">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary" name="submit">Zaloguj się</button>
-            <button type="cancel" class="btn btn-primary">Anuluj</button>
-        </form>
-    </div>
-</div>
-<?php } ?>
-</php include('site/footer.php'); ?>
+    <?php } ?>
+
+    <?php include('site/footer.php'); ?>
