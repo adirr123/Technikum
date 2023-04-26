@@ -24,7 +24,12 @@ if (isset($_SESSION['loginSession'])) {
                         $sqlSelect = 'SELECT IdUser, imie, nazwisko, login, mail, dataDodania FROM users';
                         $sqlSelectResult = mysqli_query($conn, $sqlSelect);
                         $users = mysqli_fetch_all($sqlSelectResult, MYSQLI_ASSOC);
-
+                        if (isset($_POST['remove'])) {
+                            $idUser = $_POST['IdUser'];
+                            $sqlDelete = "DELETE FROM users WHERE IdUser = $idUser";
+                            mysqli_query($conn, $sqlDelete);
+                            header("location: login.php");
+                        }
                     ?>
 
                         <table class="table">
@@ -51,7 +56,8 @@ if (isset($_SESSION['loginSession'])) {
                                     echo "<td>" . $user['mail'] . "</td>";
                                     echo "<td>" . $user['dataDodania'] . "</td>";
                                     echo "<td>";
-                                    echo "<td><button type=\"button\" class=\"btn btn-warning btn-sm\">USUŃ</button></td>";
+                                    echo "<form action=\"login.php\" method=\"post\">";
+                                    echo "<input type=\"hidden\" name=\"IdUser\" value=\"" . $user['IdUser'] . "\" >";
                                     echo "<input class=\"btn btn-warning btn-sm\" type=\"submit\" name=\"remove\" value=\"USUŃ\" ";
                                     echo "</form>";
                                     echo "</td>";
@@ -162,3 +168,4 @@ if (isset($_SESSION['loginSession'])) {
     <?php } ?>
 
     <?php include('site/footer.php'); ?>
+
