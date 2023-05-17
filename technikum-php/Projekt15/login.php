@@ -24,6 +24,7 @@ if (isset($_SESSION['loginSession'])) {
                         $sqlSelect = 'SELECT IdUser, imie, nazwisko, login, mail, dataDodania FROM users';
                         $sqlSelectResult = mysqli_query($conn, $sqlSelect);
                         $users = mysqli_fetch_all($sqlSelectResult, MYSQLI_ASSOC);
+                        
                         if (isset($_POST['remove'])) {
                             $idUser = $_POST['IdUser'];
                             $sqlDelete = "DELETE FROM users WHERE IdUser = $idUser";
@@ -47,7 +48,6 @@ if (isset($_SESSION['loginSession'])) {
                                 <?php
                                 $i = 1;
                                 foreach ($users as $user) {
-
                                     echo "<tr>";
                                     echo "<th scope=\"row\">" . $i . "</th>";
                                     echo "<td>" . $user['imie'] . "</td>";
@@ -58,13 +58,12 @@ if (isset($_SESSION['loginSession'])) {
                                     echo "<td>";
                                     echo "<form action=\"login.php\" method=\"post\">";
                                     echo "<input type=\"hidden\" name=\"IdUser\" value=\"" . $user['IdUser'] . "\" >";
-                                    echo "<input class=\"btn btn-warning btn-sm\" type=\"submit\" name=\"remove\" value=\"USUŃ\" ";
+                                    echo "<input class=\"btn btn-warning btn-sm\" type=\"submit\" name=\"remove\" value=\"USUŃ\" >";
                                     echo "</form>";
                                     echo "</td>";
                                     echo "</tr>";
                                     $i++;
                                 }
-
                                 ?>
                             </tbody>
                         </table>
@@ -168,4 +167,3 @@ if (isset($_SESSION['loginSession'])) {
     <?php } ?>
 
     <?php include('site/footer.php'); ?>
-

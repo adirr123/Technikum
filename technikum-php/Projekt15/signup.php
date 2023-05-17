@@ -145,7 +145,7 @@ placeholder="nazwa@mail.com
 // else
 //     echo "błędne hasło.";
 if($error[0] == "" && $error[1] == "" && $error[2] == "" && $error[3] == "" && $error[4] == "" && $error[5] &&  isset($_POST['submit']) && $error[6]){
-    $conn = mysqli_connect('localhost', 'Josef', '123', 'Portal');
+    $conn = mysqli_connect('localhost', 'webPLA', 'webPLA', 'portal');
         if(!$conn){
             echo 'błąd połączenia z bazą danych. error : ' . mysqli_connect_error();
         }
@@ -180,11 +180,11 @@ if($error[0] == "" && $error[1] == "" && $error[2] == "" && $error[3] == "" && $
             // echo $_POST['haslo1'];
             $datadodania = date("Y-m-d");
             // zmienne 
-        $sql = "INSERT INTO users( Imię, Nazwisko, Login, Mail, Haslo, regulamin, dataDodania)
+        $sql = "INSERT INTO users( Imie, Nazwisko, Login, Mail, Haslo, regulamin, dataDodania)
          VALUES ('$imie','$nazwisko','$login','$mail','$haslo1', true,'$datadodania')";
         mysqli_query($conn, $sql);
         echo 'dodano';
-            }else {
+            } else {
                 echo 'Podany login lub mail istnieje';
             }
             mysqli_close($conn);

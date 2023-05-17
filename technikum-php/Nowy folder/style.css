@@ -1,0 +1,41 @@
+*{
+    margin: 0px;
+}
+
+.header{
+    background-color: aquamarine;
+    font-size: 50px;
+}
+
+.napis {
+    background-color: black;
+    text-align: center;
+    color: antiquewhite;
+}
+
+
+.logo {
+  
+    font-size: 50px;
+    text-align: center;
+    background-color: rgb(218, 169, 35);
+}
+
+body{
+    background-color: rgb(218, 169, 35);
+}
+
+.stopka{
+    background-color: black;
+
+}
+
+input[type=text],[type=number],
+.teksty{
+    width: 200px;
+    margin: auto;
+    padding: auto;
+    height: 50px;
+    font-size: 50px;
+    color: antiquewhite;
+}
