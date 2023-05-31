@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="PL-pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamień Papier Nożyce</title>
+</head>
+<body>
+    
+    <div id="root"></div>
+    
+    <script>
+        function KamPapNoz(p1, p2) {
+        var res = ["kamień","nożyce","papier"]
+        if (res.indexOf(p1) == -1 && res.indexOf(p2) == -1) return "Błędny wpis"
+        if (p1==p2) {
+                return "REMIS"
+            } else {
+    if ((p1 == "kamień" && p2 == "p") ||
+    (p1 == "papier" && p2 == "kamień") ||
+    (p1 == "nożyce" && p2 == "papier")) {
+    return  "wygrał gracz1";
+} else {
+    return  "wygrał gracz2";
+}
+            }
+        }
+        const PLAYER1 = prompt("Twój wybór [kamień/nożyce/papier]")
+        const PLAYER2 = prompt("Twój wybór [kamień/nożyce/papier]")
+        var root = document.getElementById("root")
+        root.innerHTML = KamPapNoz(PLAYER1, PLAYER2)
+        console.log(PLAYER1, PLAYER2)
+        
+// var gracz1 = gracz1;
+// var gracz2 = gracz2;
+
+
+// if ($gracz1 == $gracz2) {
+//     echo "remis";
+// }elseif (
+//     ($gracz1 == "kamień" && $gracz2 == "nożyce") ||
+//     ($gracz1 == "papier" && $gracz2 == "kamień") ||
+//     ($gracz1 == "nożyce" && $gracz2 == "papier")
+// ) {
+//     echo "wygrał gracz1";
+// } else {
+//     echo "wygrał gracz2";
+// }
+    </script>
+
+
+</body>
+</html>
