@@ -1,0 +1,214 @@
+@import url('
+https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap
+');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+}
+
+body {
+    background-color: hsl(237, 18%, 59%);
+    color: hsl(193, 38%, 86%);
+}
+
+.container {
+
+	position: absolute;  
+    top: 50%;  
+    left: 50%;  
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 20px;
+    padding: 1000px; 
+}
+
+.dzien {
+    position: absolute;
+    top: 50%;  
+    left: 30%;  
+    transform: translate(-50%, -50%);
+    color: hsl(345, 95%, 68%);
+    background-color:hsl(236, 21%, 26%);
+    margin: 50px;
+    padding: 50px;
+    font-size: 100px;
+    border-radius: 20px;
+}
+.godz {
+    position: absolute;
+    top: 50%;  
+    left: 43%;  
+    transform: translate(-50%, -50%);
+    color: hsl(345, 95%, 68%);
+    background-color:hsl(236, 21%, 26%);
+    margin: 50px;
+    padding: 50px;
+    font-size: 100px;
+    border-radius: 20px;
+}
+.min {
+    position: absolute;
+    top: 50%;  
+    left: 56%;  
+    transform: translate(-50%, -50%);
+    color: hsl(345, 95%, 68%);
+    background-color:hsl(236, 21%, 26%);
+    margin: 50px;
+    padding: 50px;
+    font-size: 100px;
+    border-radius: 20px;
+}
+.sek {
+    position: absolute;
+    top: 50%;  
+    left: 69%;  
+    transform: translate(-50%, -50%);
+    color: hsl(345, 95%, 68%);
+    background-color:hsl(236, 21%, 26%);
+    margin: 50px;
+    padding: 50px;
+    font-size: 100px;
+    border-radius: 20px;
+}
+
+.nas {
+    position: absolute;
+    top: 60%;  
+    left: 32.5%;  
+    transform: translate(-50%, -50%);  
+}
+.hour {
+    position: absolute;
+    top: 60%;  
+    left: 45.5%;  
+    transform: translate(-50%, -50%);   
+}
+.minu {
+    position: absolute;
+    top: 60%;  
+    left: 58.5%;  
+    transform: translate(-50%, -50%);  
+}
+.seco {
+    position: absolute;
+    top: 60%;  
+    left: 71.5%;  
+    transform: translate(-50%, -50%);  
+}
+.p {
+    position: absolute;
+    top: 35%;  
+    left: 52%;  
+    transform: translate(-50%, -50%); 
+    font-size: 70px; 
+}
+
+@media (max-device-width: 375px) {
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+}
+
+body {
+    background-color: hsl(237, 18%, 59%);
+    color: hsl(193, 38%, 86%);
+}
+
+.container {
+
+	position: absolute;  
+    top: 50%;  
+    left: 110%;  
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 20px;
+    padding: 700px; 
+}
+
+.dzien {
+    position: absolute;
+    top: 50%;  
+    left: 30%;  
+    transform: translate(-50%, -50%);
+    color: hsl(345, 95%, 68%);
+    background-color:hsl(236, 21%, 26%);
+    margin: 25px;
+    padding: 25px;
+    font-size: 100px;
+    border-radius: 20px;
+}
+.godz {
+    position: absolute;
+    top: 50%;  
+    left: 43%;  
+    transform: translate(-50%, -50%);
+    color: hsl(345, 95%, 68%);
+    background-color:hsl(236, 21%, 26%);
+    margin: 25px;
+    padding: 25px;
+    font-size: 100px;
+    border-radius: 20px;
+}
+.min {
+    position: absolute;
+    top: 50%;  
+    left: 56%;  
+    transform: translate(-50%, -50%);
+    color: hsl(345, 95%, 68%);
+    background-color:hsl(236, 21%, 26%);
+    margin: 25px;
+    padding: 25px;
+    font-size: 100px;
+    border-radius: 20px;
+}
+.sek {
+    position: absolute;
+    top: 50%;  
+    left: 69%;  
+    transform: translate(-50%, -50%);
+    color: hsl(345, 95%, 68%);
+    background-color:hsl(236, 21%, 26%);
+    margin: 25px;
+    padding: 25px;
+    font-size: 100px;
+    border-radius: 20px;
+}
+
+.nas {
+    position: absolute;
+    top: 60%;  
+    left: 32.5%;  
+    transform: translate(-50%, -50%);  
+}
+.hour {
+    position: absolute;
+    top: 60%;  
+    left: 45.5%;  
+    transform: translate(-50%, -50%);   
+}
+.minu {
+    position: absolute;
+    top: 60%;  
+    left: 58.5%;  
+    transform: translate(-50%, -50%);  
+}
+.seco {
+    position: absolute;
+    top: 60%;  
+    left: 71.5%;  
+    transform: translate(-50%, -50%);  
+}
+.p {
+    position: absolute;
+    top: 35%;  
+    left: 52%;  
+    transform: translate(-50%, -50%); 
+    font-size: 70px; 
+}
+
+} 
