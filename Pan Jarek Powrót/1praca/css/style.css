@@ -1,0 +1,31 @@
+a:link {
+    color: aqua;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+.anim1 {
+    width:7%;
+    float:left;
+}
+.anim2 {
+    width:93%;
+    float:right;
+}
