@@ -1,0 +1,66 @@
+a:link {
+    color: aqua;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+.anim1 {
+    width:10%;
+    float:left;
+    z-index: 2;
+}
+.anim2 {
+    width:100%;
+    float:right;
+    position: absolute;
+
+}
+.anim3 {
+  width:10%;
+  float:left;
+  padding-left: 1000px;
+  z-index: 2;
+}
+.anim4 {
+float: left;
+width: 10%;
+padding-left: 600px;
+position: absolute;
+
+}
+.anim5 {
+    width:10%;
+    float:left;
+    padding-left: 300px;
+    position: absolute;
+    z-index: 2;
+  }
+  .anim6 {
+    width:10%;
+    float:left;
+    padding-left: 900px;
+    position: absolute;
+    z-index: 2;
+  }
+  
+
+img {
+  padding-right: 125px;
+}
